@@ -1,0 +1,31 @@
+/* Info Modal */
+
+#info-modal {
+    height: 500px;
+    text-align: center;
+    background-image: url(../images/cooking.jpg);
+    background-position: center;
+    padding-top: 200px;
+}
+
+#info-modal h1 {
+    display: block;
+    margin-top: 10px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+#info-modal .button {
+    background-color: lightcoral;
+    clear: both;
+    width: 10em;
+}
+
+#info-modal .button:hover {
+    background-color: #111;
+}
+
+/* END Info Modal */
