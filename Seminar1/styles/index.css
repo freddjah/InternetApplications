@@ -18,14 +18,4 @@
     font-size: 40px;
 }
 
-#info-modal .button {
-    background-color: lightcoral;
-    clear: both;
-    width: 10em;
-}
-
-#info-modal .button:hover {
-    background-color: #111;
-}
-
 /* END Info Modal */

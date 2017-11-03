@@ -116,6 +116,54 @@
 
 /* END Instructions Section */
 
+/* Comments Section */
+
+#comments h3 {
+    text-align: center;
+    color: white;
+}
+
+#comments {
+    display: block;
+    background-color: lightcoral;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#comments li {
+    background-color: white;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.user {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.comment {
+    display: block;
+    margin-top: 12px;
+    line-height: 22px
+}
+
+#bottom-navbar {
+    height: 80px;
+    position: relative;
+    display: none;
+}
+
+#bottom-navbar .button {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    text-align: center;
+}
+
+/* END Comments Section */
+
 /* Media Queries */
 
 @media only screen and (max-width: 850px){
@@ -125,6 +173,10 @@
     
     #instructions {
         width: 100%;
+    }
+    
+    #bottom-navbar {
+        display: block;
     }
 }
 

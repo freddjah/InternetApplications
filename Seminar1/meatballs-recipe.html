@@ -2,9 +2,8 @@
 <html>
     <head>
         <title>Recipes.com - Meatballs</title>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Permanent+Marker" rel="stylesheet">
+        <link rel="stylesheet" href="styles/reset.css" type="text/css">
         <link rel="stylesheet" href="styles/base.css" type="text/css">
         <link rel="stylesheet" href="styles/recipe.css" type="text/css">
         <style>
@@ -14,7 +13,7 @@
         </style>
     </head>
     <body>
-        <nav class="menu">
+        <nav class="menu" id="top">
             <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="calendar.html">Recipe Calendar</a></li>
@@ -80,5 +79,25 @@
                 </li>
             </ol>
         </section>
+        <section id="comments">
+            <h3>Comments</h3>
+            <ul>
+                <li>
+                    <span class="user">per_moberg</span> wrote:
+                    <span class="comment">
+                        A great recipe, but can I use a banana instead of eggs?
+                    </span>
+                </li>
+                <li>
+                    <span class="user">oliverjamie</span> wrote:
+                    <span class="comment">
+                        I would call it italian meatballs instead of swedish, otherwise a good recipe.
+                    </span>
+                </li>
+            </ul>
+        </section>
+        <nav id="bottom-navbar">
+            <a href="#top" class="button">Back to top</a>
+        </nav>
     </body>
 </html>
