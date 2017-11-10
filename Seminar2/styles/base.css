@@ -1,0 +1,79 @@
+/* Base CSS */
+
+body {
+    font-family: Verdana, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Menu Navbar */
+
+.menu {
+    width: 100%;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+}
+
+.menu li {
+    display:inline-block
+}
+
+.menu li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 1em 1.2em;
+    text-decoration: none;
+}
+
+.menu li:hover {
+    background-color: #111;
+}
+
+.menu #active {
+    background-color: lightcoral;
+}
+
+/* Menu Media Queries */
+
+@media only screen and (max-width: 620px){
+    .menu li {
+        display: block;
+    }
+}
+
+/* END Menu Navbar */
+
+/* Utilities */
+
+.button {
+    padding: 16px 16px;
+    border-radius: 2px;
+    max-width: 310px;
+    background-color: lightcoral;
+    color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #111;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+/* END Utilities */
+
+/* END Base CSS */

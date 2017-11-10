@@ -1,0 +1,36 @@
+/* Info Modal */
+
+#info-modal {
+    height: 500px;
+    text-align: center;
+    background-image: url(../images/cooking.jpg);
+    background-position: center;
+    padding-top: 200px;
+}
+
+#info-modal h1 {
+    display: block;
+    margin-top: 10px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+@media only screen and (max-width: 620px) {
+    #info-modal {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        padding-top: 0;
+        z-index: -1;
+    }
+    
+    #info-modal div {
+        position: relative;
+        top: 50%;
+    }
+}
+/* END Info Modal */
