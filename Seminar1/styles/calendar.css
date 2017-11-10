@@ -11,12 +11,19 @@ ul {list-style-type: none;}
 .month ul {
     margin: 0;
     padding: 0;
+    display: table;
 }
 
-.month ul li {
+.month h1 {
     color: white;
     font-size: 20px;
     text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month h3 {
+    color: white;
+    font-size: 14px;
     letter-spacing: 3px;
 }
 
@@ -26,7 +33,7 @@ ul {list-style-type: none;}
 
 .weekdays {
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 5px;
     background-color: #ddd;
 }
 
@@ -34,7 +41,6 @@ ul {list-style-type: none;}
     display: inline-block;
     width: 13.6%;
     color: #666;
-    text-align: center;
 }
 
 /* END Weekdays */
@@ -42,7 +48,6 @@ ul {list-style-type: none;}
 /* Days */
 
 .days {
-    padding: 10px 0;
     background: #eee;
     margin: 0;
 }
@@ -51,11 +56,12 @@ ul {list-style-type: none;}
     list-style-type: none;
     display: inline-block;
     width: 13.6%;
-    margin-top: 3.5vw;
-    margin-bottom: 3.5vw;
+    height: 12vh;
+    position: relative;
     text-align: center;
     font-size:12px;
     color: #777;
+    overflow: hidden;
 }
 
 .days li .active {
@@ -67,35 +73,36 @@ ul {list-style-type: none;}
 .days .recipeday {
     margin-top: 0;
     margin-bottom: 0;
+    position: relative;
 }
 
-.days .recipeday a {
-    padding-top: 3.5vw;
-    padding-bottom: 3.5vw;
+.days .recipeday span {
     color: white;
     font-weight: bold;
     text-decoration: none;
     display: block;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: lightcoral;
+}
+
+.days .recipeday img {
+    width: 100%;
+}
+
+.daynumber {
+    position: absolute;
+    top: 5px;
+    left: 5px;
 }
 
 /* END Days */
-
-#pancakeday {
-    background-image: url("../images/pancake.jpeg");
-    background-size: cover;
-    background-position: center;
-}
-
-#meatballsday {
-    background-image: url("../images/meatballs.jpg");
-    background-size: cover;
-    background-position: center;
-}
 
 /* Media Queries */
 
 @media screen and (max-width:720px) {
     .weekdays li, .days li {width: 13.1%;}
+    .days li {height: 10vw;}
 }
 
 @media screen and (max-width: 420px) {

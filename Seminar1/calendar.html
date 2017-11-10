@@ -2,10 +2,13 @@
 <html>
     <head>
         <title>Recipes.com - Calendar</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
         <link rel="stylesheet" href="styles/reset.css" type="text/css">
         <link rel="stylesheet" href="styles/base.css" type="text/css">
         <link rel="stylesheet" href="styles/calendar.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <nav class="menu">
@@ -19,15 +22,11 @@
         <section id="calendar-modal">
             <div id="calendar">
                 <div class="month"> 
-                    <ul>
-                      <li>
-                        October<br>
-                        <span style="font-size:18px">2017</span>
-                      </li>
-                    </ul>
-                  </div>
+                    <h1>October</h1>
+                    <h3>2017</h3>
+                </div>
                   
-                  <ul class="weekdays">
+                <ul class="weekdays">
                     <li>Mo</li>
                     <li>Tu</li>
                     <li>We</li>
@@ -35,45 +34,51 @@
                     <li>Fr</li>
                     <li>Sa</li>
                     <li>Su</li>
-                  </ul>
-                  
-                  <ul class="days"> 
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li class="recipeday" id="pancakeday">
-                        <a href="#">10</a>
+                </ul>
+
+                <ul class="days"> 
+                    <li><span class="daynumber">1</span></li>
+                    <li><span class="daynumber">2</span></li>
+                    <li><span class="daynumber">3</span></li>
+                    <li><span class="daynumber">4</span></li>
+                    <li><span class="daynumber">5</span></li>
+                    <li><span class="daynumber">6</span></li>
+                    <li><span class="daynumber">7</span></li>
+                    <li><span class="daynumber">8</span></li>
+                    <li><span class="daynumber">9</span></li>
+                    <li class="recipeday">
+                        <a href="meatballs-recipe.html">    
+                            <span class="daynumber">10</span>
+                            <img alt="Meatballs recipe" src="../images/meatballs.jpg">
+                        </a>
                     </li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>16</li>
-                    <li>17</li>
-                    <li>18</li>
-                    <li>19</li>
-                    <li>20</li>
-                    <li>21</li>
-                    <li>22</li>
-                    <li class="recipeday" id="meatballsday">
-                        <a href="#">23</a>
+                    <li><span class="daynumber">11</span></li>
+                    <li><span class="daynumber">12</span></li>
+                    <li><span class="daynumber">13</span></li>
+                    <li><span class="daynumber">14</span></li>
+                    <li><span class="daynumber">15</span></li>
+                    <li><span class="daynumber">16</span></li>
+                    <li><span class="daynumber">17</span></li>
+                    <li><span class="daynumber">18</span></li>
+                    <li><span class="daynumber">19</span></li>
+                    <li><span class="daynumber">20</span></li>
+                    <li><span class="daynumber">21</span></li>
+                    <li><span class="daynumber">22</span></li>
+                    <li class="recipeday">
+                        <a href="pancakes-recipe.html">    
+                            <span class="daynumber">23</span>
+                            <img alt="Pancakes recipe" src="../images/pancake.jpeg">
+                        </a>
                     </li>
-                    <li>24</li>
-                    <li>25</li>
-                    <li>26</li>
-                    <li>27</li>
-                    <li>28</li>
-                    <li>29</li>
-                    <li>30</li>
-                    <li>31</li>
-                  </ul>
+                    <li><span class="daynumber">24</span></li>
+                    <li><span class="daynumber">25</span></li>
+                    <li><span class="daynumber">26</span></li>
+                    <li><span class="daynumber">27</span></li>
+                    <li><span class="daynumber">28</span></li>
+                    <li><span class="daynumber">29</span></li>
+                    <li><span class="daynumber">30</span></li>
+                    <li><span class="daynumber">31</span></li>
+                </ul>
             </div>
         </section>
     </body>
