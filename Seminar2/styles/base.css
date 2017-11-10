@@ -1,16 +1,71 @@
 /* Base CSS */
 
 body {
+    background-image: url('../images/bg_large.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
     font-family: Verdana, sans-serif;
     font-family: 'Montserrat', sans-serif;
-    max-width: 1000px;
     margin: auto;
 }
+
+/* Header Modal */
+
+.header-modal {
+    height: 300px;
+}
+
+.header-modal h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 100px;
+    text-align: center;
+    width: 500px;
+    font-weight: 800;
+    color: white;
+    margin: auto;
+    padding-top: 125px;
+}
+
+/* END Header Modal */
+
+
+/* Login Signup */
+
+.user-actions {
+    display: block;
+}
+
+.user-actions ul {
+    margin-top: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.user-actions li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.user-actions li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+    padding: 10px 20px;
+    background-color: lightcoral;
+    border-radius: 10px;
+}
+
+/* END Login Signup */
 
 /* Menu Navbar */
 
 .menu {
     width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(253, 253, 253);
+    border-bottom: 2px #c7c7c7;
+    border-bottom-style: solid;
 }
 
 .menu ul {
@@ -18,28 +73,36 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-    text-align: center;
 }
 
 .menu li {
-    display:inline-block
+    display:inline-block;
+    margin-top: 25px;
+}
+
+.menu li:hover {
+    border-bottom: 2px solid lightcoral;
 }
 
 .menu li a {
     display: inline-block;
-    color: white;
+    color: grey;
     text-align: center;
-    padding: 1em 1.2em;
+    padding: 16px 20px;
     text-decoration: none;
+    font-weight: 800;
 }
 
-.menu li:hover {
-    background-color: #111;
+.menu a:hover {
+    color: lightcoral;
+}
+
+.menu #active a {
+    color: lightcoral;
 }
 
 .menu #active {
-    background-color: lightcoral;
+    border-bottom: 2px solid lightcoral;
 }
 
 /* Menu Media Queries */
@@ -51,6 +114,16 @@ body {
 }
 
 /* END Menu Navbar */
+
+/* Content Wrapper */
+
+.content-wrapper {
+    max-width: 1000px;
+    background-color: #e9e9e9;
+    margin: auto;
+}
+
+/* END Content Wrapper */ 
 
 /* Utilities */
 
