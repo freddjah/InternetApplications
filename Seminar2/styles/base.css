@@ -26,7 +26,7 @@ body {
     display:inline-block
 }
 
-.menu li a {
+.menu li * {
     display: inline-block;
     color: white;
     text-align: center;
@@ -52,7 +52,60 @@ body {
 
 /* END Menu Navbar */
 
+/* User Navbar */
+
+.user ul {
+    background-color: lightcoral;
+}
+
+.user li:hover {
+    background-color: #9d4d4d;
+}
+
+.logged-in:hover {
+    background-color: lightcoral !important;
+}
+
+/* END User Navbar */
+
 /* Utilities */
+
+.input-form {
+    display: inline-block;
+    text-align: center;
+    padding: 50px;
+    background-color: white;
+}
+
+.input-form input {
+    display: block;
+    margin: auto;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-form input:focus {
+    border: 1px solid lightcoral;
+}
+
+.input-form * {
+    margin-top: 10px !important;
+}
+
+.input-form button {
+    border: none;
+    cursor: pointer;
+}
+
+.input-form a {
+    display: block;
+    color: rgb(168, 82, 82);
+    text-decoration: underline;
+    margin-top: 20px !important;
+}
 
 .button {
     padding: 16px 16px;
@@ -68,6 +121,14 @@ body {
 
 .button:hover {
     background-color: #111;
+}
+
+.button-inverse {
+    background-color: black;
+}
+
+.button-inverse:hover {
+    background-color: lightcoral;
 }
 
 h3 {
