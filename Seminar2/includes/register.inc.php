@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
             exit();
         } else {
             // Find if user already exists
-            $sql = "SELECT * FROM users WHERE user_username='$username'";
+            $sql = "SELECT * FROM User WHERE Username='$username'";
             $result = mysqli_query($link, $sql);
             $rowsInResult = mysqli_num_rows($result);
 
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
                 // Insert user into database
-                $sql = "INSERT INTO users (user_username, user_password) VALUES ('$username', '$hashedPassword');";
+                $sql = "INSERT INTO User (Username, Password) VALUES ('$username', '$hashedPassword');";
                 mysqli_query($link, $sql);
                 header("Location: ../register.php?signup=success");
                 exit();

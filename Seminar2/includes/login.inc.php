@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         header("Location: ../login.php?login=empty_password");
         exit();
     } else {
-        $sql = "SELECT * FROM users WHERE user_username='$username'";
+        $sql = "SELECT * FROM User WHERE Username='$username'";
         $result = mysqli_query($link, $sql);
         $rowsInResult = mysqli_num_rows($result);
 
@@ -31,13 +31,14 @@ if (isset($_POST['submit'])) {
             // Trying to fetch row
             if ($row = mysqli_fetch_assoc($result)) {
                 // De-hashing password
-                $correctPassword = password_verify($password, $row["user_password"]);
+                $correctPassword = password_verify($password, $row["Password"]);
                 if (!correctPassword) {
                     header("Location: ../login.php?password_not_correct");
                     exit();
                 } else if ($correctPassword) {
                     // Log in user in current session
-                    $_SESSION["username"] = $row["user_username"];
+                    $_SESSION["username"] = $row["Username"];
+                    $_SESSION['user_id'] = $row['ID'];
                     header("Location: ../index.php?login=success");
                     exit();
                 }

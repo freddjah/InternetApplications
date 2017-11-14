@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -16,14 +17,8 @@
         </style>
     </head>
     <body>
-        <nav class="menu" id="top">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="calendar.html">Recipe Calendar</a></li>
-              <li><a href="meatballs-recipe.html">Meatballs Recipe</a></li>
-              <li id="active"><a href="pancakes-recipe.html">Pancakes Recipe</a></li>
-            </ul>
-        </nav>
+        <?php include_once 'menu.php' ?>
+        <?php include_once 'user_menu.php' ?>
         <header id="picture">
             <h1>
                 Pancakes Recipe
@@ -64,19 +59,40 @@
         <section id="comments">
             <h3>Comments</h3>
             <ul>
-                <li>
-                    <span class="user">per_moberg</span> wrote:
-                    <span class="comment">
-                        A great recipe, but can I use a banana instead of eggs?
-                    </span>
-                </li>
-                <li>
-                    <span class="user">leffemannerstroem</span> wrote:
-                    <span class="comment">
-                        This is very good recept. But triple the amount of smoer.
-                    </span>
-                </li>
+                <?php 
+                    include_once 'includes/db_connection.php'; 
+                    $sql = "SELECT * FROM Comment WHERE Recipe='pancakes'";
+                    $result = mysqli_query($link, $sql);
+
+                    foreach(mysqli_fetch_all($result, MYSQLI_ASSOC) as $row) {
+                        $user_id = $row['UserID'];
+                        
+                        $sql = "SELECT Username FROM User WHERE ID='$user_id'";
+                        $user_result = mysqli_query($link, $sql);
+
+                        $username = mysqli_fetch_assoc($user_result)['Username'];
+
+                        echo '<li>';
+                        echo '<span class="user">' . $username . '</span>';
+
+                        if ($_SESSION['username'] == $username) {
+                            echo '<a class="delete-comment" href="includes/delete_comment.inc.php?id=' . $row['ID'] . '">DELETE COMMENT</a>';
+                        } 
+
+                        echo '<span class="comment">' . $row['Message'] . '</span>';
+                        echo '</li>';
+                    }
+                    
+                ?>
             </ul>
+            <?php
+                if (isset($_SESSION['username'])) {
+                    echo '<form method="POST" action="includes/comment.inc.php?recipe=pancakes">';
+                    echo '<textarea name="message"></textarea>';
+                    echo '<button type="submit" name="submit">Add comment</button>';
+                    echo '</form>';
+                } 
+            ?>
         </section>
         <nav id="bottom-navbar">
             <a href="#top" class="button">Back to top</a>
