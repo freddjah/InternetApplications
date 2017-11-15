@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <form class="input-form" action="includes/login.inc.php" method="POST">
+        <form class="input-form" action="includes/actions/login.inc.php" method="POST">
             <h1>
                 LOG IN AS USER
             </h1>

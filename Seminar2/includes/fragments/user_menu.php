@@ -1,4 +1,4 @@
-<nav class="menu user">
+<nav class="menu menu-user">
     <?php
         if (isset($_SESSION['username'])) {
             echo '<ul><li class="logged-in"><span>Logged in as ' . $_SESSION["username"] . '</span></li><li><a href="logout.php">Log out</a></li><ul>';

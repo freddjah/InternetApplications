@@ -54,11 +54,11 @@ body {
 
 /* User Navbar */
 
-.user ul {
-    background-color: lightcoral;
+.menu-user ul {
+    background-color: lightcoral !important;
 }
 
-.user li:hover {
+.menu-user li:hover {
     background-color: #9d4d4d;
 }
 

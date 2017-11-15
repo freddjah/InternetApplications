@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cookbook version="1">
+
+    <recipe>
+    <title>Meatballs</title>
+    <preptime>30 min</preptime>
+    <cooktime>35 min</cooktime>
+    <totaltime>65 min</totaltime>
+    <description></description>
+    <ingredient>
+        <li>2 tablespoons butter</li>
+        <li>1/2 yellow onion, finely chopped</li>
+        <li>1 1/2 teaspoons fine salt</li>
+        <li>1/4 cup milk</li>
+        <li>2 large eggs</li>
+        <li>1/3 cup plain bread crumbs</li>
+        <li>3/4 teaspoon freshly ground black pepper</li>
+        <li>1/4 teaspoon ground nutmeg</li>
+        <li>1/4 teaspoon ground allspice</li>
+        <li>1 pinch cayenne pepper, or to taste</li>
+        <li>1 pound ground beef chuck</li>
+        <li>1 pound ground pork</li>
+    </ingredient>
+    <recipetext>
+        <li>
+            Melt 2 tablespoons butter in a large skillet over medium heat. Cook and stir onion and 1 1/2 teaspoons salt in butter until onion begins to turn translucent, about 6 minutes.
+        </li>
+        <li>
+            Transfer onion mixture to a large bowl. Add milk, eggs, bread crumbs, black pepper, nutmeg, allspice, and cayenne pepper to the breadcrumb mixture; stir to combine
+        </li>
+        <li>
+            Mix beef and pork into the bread crumb mixture. Cover with plastic wrap and refrigerate for 1 hour.
+        </li>
+        <li>
+            Preheat oven to 425 degrees F (220 degrees C). Line a baking sheet with aluminum foil and lightly coat foil with cooking spray.
+        </li>
+        <li>
+            Roll 2 to 3 tablespoons meatball mixture into a ball using wet hands; repeat with remaining meatball mixture. Place meatballs on the prepared baking sheet.
+        </li>
+        <li>
+            Bake in the preheated oven until browned, about 20 minutes. An instant-read thermometer inserted into the center should read at least 160 degrees F (70 degrees C).
+        </li>
+    </recipetext>
+    <url></url>
+    <video></video>
+    <quantity>6</quantity>
+    <imagepath>images/meatballs_large.jpg</imagepath>
+    <imageurl></imageurl>
+    <comments></comments>
+    <source></source>
+    <video></video>
+    <nutrition></nutrition>
+    <rating></rating>
+    <category></category>
+    <category></category>
+    </recipe>
+
+    <recipe>
+    <title>Pancakes</title>
+    <preptime>30 min</preptime>
+    <cooktime>10 min</cooktime>
+    <totaltime>40 min</totaltime>
+    <description></description>
+    <ingredient>
+        <li>1 1/2 cups all-purpose flour</li>
+        <li>3 1/2 teaspoons baking powder</li>
+        <li>1 teaspoon salt</li>
+        <li>1 tablespoon white sugar</li>
+        <li>1 1/4 cups milk</li>
+        <li>1 egg</li>
+        <li>3 tablespoons butter, melted</li>
+    </ingredient>
+    <recipetext>
+        <li>In a large bowl, sift together the flour, baking powder, salt and sugar. Make a well in the center and pour in the milk, egg and melted butter; mix until smooth.</li>
+        <li>Heat a lightly oiled griddle or frying pan over medium high heat. Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.</li>
+    </recipetext>
+    <url></url>
+    <video></video>
+    <quantity>8-10</quantity>
+    <imagepath>images/pancake_large.jpg</imagepath>
+    <imageurl></imageurl>
+    <comments></comments>
+    <source></source>
+    <video></video>
+    <nutrition></nutrition>
+    <rating></rating>
+    <category></category>
+    <category></category>
+    </recipe>
+
+</cookbook>

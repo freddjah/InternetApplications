@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -11,14 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <nav class="menu">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li id="active"><a href="calendar.html">Recipe Calendar</a></li>
-              <li><a href="meatballs-recipe.html">Meatballs Recipe</a></li>
-              <li><a href="pancakes-recipe.html">Pancakes Recipe</a></li>
-            </ul>
-        </nav>
+        <?php 
+            include_once 'includes/fragments/menu.php';
+        ?>
         <section id="calendar-modal">
             <div id="calendar">
                 <div class="month"> 

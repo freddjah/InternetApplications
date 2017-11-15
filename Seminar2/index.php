@@ -12,8 +12,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <?php include_once 'menu.php' ?>
-        <?php include_once 'user_menu.php' ?>
+        <?php include_once 'includes/fragments/menu.php' ?>
+        <?php include_once 'includes/fragments/user_menu.php' ?>
         <section id="info-modal">
             <div>
                 <h1>
