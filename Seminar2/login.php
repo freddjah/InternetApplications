@@ -17,7 +17,21 @@
                 LOG IN AS USER
             </h1>
             <input type="text" name="username" placeholder="Username"/>
+            
+            <?php if(isset($_GET['username_not_found'])): ?>
+                <span class="error">Username not found</span>
+            <?php elseif(isset($_GET['empty_username'])): ?>
+                <span class="error">Please enter a username</span>
+            <?php endif ?>
+
             <input type="password" name="password" placeholder="Password"/>
+
+            <?php if(isset($_GET['password_not_correct'])): ?>
+                <span class="error">Incorrect password</span>
+            <?php elseif(isset($_GET['empty_password'])): ?>
+                <span class="error">Please enter a password</span>
+            <?php endif ?>
+
             <button class="button" type="submit" name="submit">Log in</button>
             <a href="register.php">Don't have an account? Register a user.</a>
         </form>

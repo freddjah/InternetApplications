@@ -162,10 +162,34 @@
     text-align: center;
 }
 
-.delete-comment {
-    padding-left: 5px;
+.delete-button {
+    display: inline;
+}
+
+#comments .write-comment h1 {
+    color: white;
     font-weight: 800;
-    color: lightcoral;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#comments .write-comment button {
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#comments .write-comment textarea {
+    resize: none;
+    width: 400px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
 }
 
 /* END Comments Section */
@@ -185,11 +209,30 @@
         display: block;
     }
 }
+@media only screen and (max-width: 610px){
+    #comments .write-comment textarea {
+        display: block;
+        width: 100%;
+        height: 100px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    #comments .write-comment button {
+        position: relative;
+        margin-left: 0;
+    }
+}
 
 @media only screen and (max-width: 460px){
     #picture h1 {
         font-size: 28px;
     }
+
+    #comments .write-comment textarea {
+        height: 200px;
+    }
+
 }
 
 /* END Media Queries */

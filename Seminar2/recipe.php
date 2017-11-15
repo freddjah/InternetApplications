@@ -12,7 +12,6 @@
     } else {
         $result_row = mysqli_fetch_assoc($result);
         $recipe_name = $result_row['name'];
-        $recipe_xml_path = $result_row['xml_path'];
     }
 ?>
 
@@ -100,20 +99,24 @@
                 <li>
                     <span class="user"><?php echo $username ?></span>
                     <?php if($_SESSION['username'] == $username): ?>
-                        <a class="delete-comment" href="includes/actions/delete_comment.inc.php?id=<?php echo $row['id']?>">DELETE COMMENT</a>
+                    <form class="delete-button" method="POST" action="includes/actions/delete_comment.inc.php">
+                        <input hidden name="comment_id" value="<?php echo $row['id'] ?>">
+                        <input hidden name="recipe_id" value="<?php echo $recipe_id ?>">
+                        <button type="submit" name="delete">Delete</button>
+                    </form>
                     <?php endif?>
                     <span class="comment"><?php echo $row['message']?></span>
                 </li>
                 <?php endforeach ?>
             </ul>
-            <?php
-                if (isset($_SESSION['username'])) {
-                    echo '<form method="POST" action="includes/comment.inc.php?recipe=pancakes">';
-                    echo '<textarea name="message"></textarea>';
-                    echo '<button type="submit" name="submit">Add comment</button>';
-                    echo '</form>';
-                } 
-            ?>
+            <?php if (isset($_SESSION['username'])): ?>
+                <form class="write-comment" method="POST" action="includes/actions/add_comment.inc.php">
+                    <h1>Write a comment:</h1>
+                    <input hidden name="id" value="<?php echo $recipe_id ?>">
+                    <textarea maxlength="250" name="message" placeholder="Write a message (up to 250 characters)..." required></textarea>
+                    <button class="button button-white" type="submit" name="submit">Add comment</button>
+                </form> 
+            <?php endif ?>
         </section>
         <nav id="bottom-navbar">
             <a href="#top" class="button">Back to top</a>

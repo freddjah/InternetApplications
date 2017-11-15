@@ -43,7 +43,7 @@
                     <li><span class="daynumber">8</span></li>
                     <li><span class="daynumber">9</span></li>
                     <li class="recipeday">
-                        <a href="meatballs-recipe.html">    
+                        <a href="recipe.php?id=1">    
                             <span class="daynumber">10</span>
                             <img alt="Meatballs recipe" src="images/meatballs.jpg">
                         </a>
@@ -61,7 +61,7 @@
                     <li><span class="daynumber">21</span></li>
                     <li><span class="daynumber">22</span></li>
                     <li class="recipeday">
-                        <a href="pancakes-recipe.html">    
+                        <a href="recipe.php?id=2">    
                             <span class="daynumber">23</span>
                             <img alt="Pancakes recipe" src="images/pancake.jpeg">
                         </a>

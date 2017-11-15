@@ -124,15 +124,30 @@ body {
 }
 
 .button-inverse {
-    background-color: black;
+    background-color: #111;
 }
 
 .button-inverse:hover {
     background-color: lightcoral;
 }
 
+.button-white {
+    background-color: white;
+    color: lightcoral;
+}
+
+.button-white:hover {
+    background-color: #111;
+    color: white;
+}
+
 h3 {
     font-size: 2em;
+}
+
+.error {
+    color: red;
+    display: block;
 }
 
 /* END Utilities */
