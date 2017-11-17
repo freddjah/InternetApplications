@@ -1,0 +1,16 @@
+h1 {
+    font-size: 50px;
+    display: block;
+    padding: 20px;
+    font-family: 'Permanent Marker';
+}
+
+img {
+    display: block;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+div {
+    text-align: center;
+}

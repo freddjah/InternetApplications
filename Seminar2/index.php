@@ -19,7 +19,7 @@
                 <h1>
                     What should you eat today?
                 </h1>
-                <a class="button" href="calendar.html">
+                <a class="button" href="calendar.php">
                     Go to our Recipe Calendar
                 </a>
             </div>
