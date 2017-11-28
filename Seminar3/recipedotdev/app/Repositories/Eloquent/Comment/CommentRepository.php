@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Eloquent;
+namespace App\Repositories\Eloquent\Comment;
 
 use App\Comment;
 use App\Repositories\Contracts\CommentRepositoryInterface;
@@ -20,9 +20,9 @@ class CommentRepository implements CommentRepositoryInterface
         return $this->comment->all();
     }
 
-    function getById($id)
+    function getById($id, array $relationships = [])
     {
-        return $this->comment->where('id', $id)->get();
+        return $this->comment->with($relationships)->where('id', $id)->get();
     }
 
     function create(array $attributes)

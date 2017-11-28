@@ -9,17 +9,19 @@ class CommentController extends Controller
     public function __construct(CommentRepositoryInterface $repository)
     {
         $this->repository = $repository;
+        $this->middleware('auth');
     }
 
-    public function store()
+    public function store($recipeId)
     {
-        // Validate form
         $validator = $this->repository->getValidation();
         $this->validate(request(), $validator);
 
-        // Create comment
-        $commentParams = $this->repository->getCommentParams();
-        $this->repository->create(request($commentParams));
+        $this->repository->create([
+            'recipe_id' => $recipeId,
+            'user_id'   => auth()->id(),
+            'message'   => request('message'),
+        ]);
 
         return back();
     }

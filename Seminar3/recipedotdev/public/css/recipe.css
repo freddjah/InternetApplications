@@ -1,0 +1,70 @@
+.jumbotron-bg-image {
+  height: 400px;
+  background-position: center;
+  background-size: cover;
+}
+
+.jumbotron-bg-image h1 {
+  background-color: lightcoral;
+  padding: 16px;
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 50px;
+}
+
+@media only screen and (max-width: 460px) {
+  .jumbotron-bg-image h1 {
+    font-size: 28px;
+  }
+}
+
+#summary ul {
+  text-align: center;
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  background-color: lightcoral;
+  color: white;
+}
+
+#summary li {
+  display: list-item;
+}
+
+#summary li h4 {
+  padding-bottom: 16px;
+}
+
+#ingredients h3 {
+  color: white;
+}
+
+#instructions {
+  counter-reset: step;
+}
+
+#instructions ol {
+  position: relative;
+}
+
+#instructions li {
+  text-align: justify;
+  margin-bottom: 20px;
+  line-height: 25px;
+}
+
+#instructions li::before {
+  content: counter(step);
+  counter-increment: step;
+  position: absolute;
+  left: 18px;
+  font-size: 30px;
+  font-weight: 800;
+  color: lightcoral;
+}
+
+#instructions h3 {
+  text-align: center;
+  margin: 0;
+}
+

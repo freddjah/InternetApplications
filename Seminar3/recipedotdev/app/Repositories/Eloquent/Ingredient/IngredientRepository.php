@@ -19,9 +19,9 @@ class IngredientRepository implements IngredientRepositoryInterface
         return $this->ingredient->all();
     }
 
-    function getById($id)
+    function getById($id, array $relationships = [])
     {
-        return $this->ingredient->where('id', $id)->get();
+        return $this->ingredient->with($relationships)->where('id', $id)->get();
     }
 
     function create(array $attributes)

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Contracts\UserRepositoryInterface;
-use Illuminate\Http\Request;
 
 class RegistrationsController extends Controller
 {
@@ -14,7 +13,7 @@ class RegistrationsController extends Controller
 
     public function create()
     {
-        return view('registration.create');
+        return view('auth.register');
     }
 
     /**

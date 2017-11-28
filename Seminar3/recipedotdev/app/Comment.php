@@ -11,23 +11,18 @@ class Comment extends Model
 
     public function recipe()
     {
-        $this->belongsTo(Recipe::class);
+        return $this->belongsTo(Recipe::class);
     }
 
     public function user()
     {
-        $this->belongsTo(User::class);
-    }
-
-    public function creationParams()
-    {
-        return ['body', 'recipe_id', 'user_id'];
+        return $this->belongsTo(User::class);
     }
 
     public function validation()
     {
         return [
-            'body' => 'required'
+            'message' => 'required'
         ];
     }
 }
