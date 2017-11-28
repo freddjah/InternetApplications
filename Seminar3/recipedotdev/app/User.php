@@ -27,8 +27,47 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function login(User $user)
+    {
+        auth()->login($user);
+    }
+
+    public function loginWithCredentials(array $credentials)
+    {
+        return auth()->attempt($credentials);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+    }
+
+    public function registrationParams()
+    {
+        return ['name', 'email', 'password'];
+    }
+
+    public function authenticationParams()
+    {
+        return ['email', 'password'];
+    }
+
+    public function registrationValidation()
+    {
+        return [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ];
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Eloquent\Instruction;
+namespace App\Repositories\Eloquent\User;
 
 use Illuminate\Support\ServiceProvider;
 
-class InstructionRepositoryServiceProvider extends ServiceProvider
+class UserRepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
@@ -23,6 +23,6 @@ class InstructionRepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Repositories\Contracts\InstructionRepositoryInterface', 'App\Repositories\Eloquent\Instruction\InstructionRepository');
+        $this->app->bind('App\Repositories\Contracts\UserRepositoryInterface', 'App\Repositories\Eloquent\User\UserRepository');
     }
 }

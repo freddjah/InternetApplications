@@ -16,14 +16,18 @@ class Comment extends Model
 
     public function user()
     {
-        // TODO: Implement own user auth.
-        // $this->belongsTo(User::class);
+        $this->belongsTo(User::class);
     }
 
-    public function validate(Request $request)
+    public function creationParams()
     {
-        return $request->validate([
-            'message' => 'required',
-        ]);
+        return ['body', 'recipe_id', 'user_id'];
+    }
+
+    public function validation()
+    {
+        return [
+            'body' => 'required'
+        ];
     }
 }

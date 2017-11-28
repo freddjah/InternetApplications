@@ -14,7 +14,7 @@ class RecipeController extends Controller
     public function index()
     {
         $recipes = $this->repository->getIngredientsOnRecipe(1);
-        dd($recipes);
+        dd(auth()->user());
     }
 
 }

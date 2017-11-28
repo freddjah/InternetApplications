@@ -28,7 +28,7 @@ class CommentRepository implements CommentRepositoryInterface
     function create(array $attributes)
     {
 
-        $this->comment->create($attributes);
+        return $this->comment->create($attributes);
     }
 
     function update($id, array $attributes)
@@ -41,8 +41,13 @@ class CommentRepository implements CommentRepositoryInterface
         $this->comment->where('id', $id)->delete();
     }
 
-    function validateRequest(Request $request)
+    function getValidation()
     {
-        return $this->comment->validate($request);
+        return $this->comment->validation();
+    }
+
+    function getCommentParams()
+    {
+        return $this->comment->creationParams();
     }
 }
