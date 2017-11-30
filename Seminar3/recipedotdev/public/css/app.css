@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.default-bg {
+  background-color: lightcoral;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.nav-link-whitefade {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+body {
+  background-color: #ece0e0;
+}
+
+@media only screen and (min-width: 991px) {
+  .collapsed-menu-seperator {
+    display: none;
+  }
+}
+
