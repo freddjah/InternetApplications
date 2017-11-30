@@ -34,7 +34,7 @@ class Comment extends Model
     }
 
     /**
-     * Returns the fields needed in a POST-requested form.
+     * Returns the fields needed in a POST-request form.
      *
      * @return array
      */
