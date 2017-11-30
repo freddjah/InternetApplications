@@ -11,18 +11,27 @@
 |
 */
 
+// Default
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/register', 'RegistrationsController@create')->name('register');
+// Registration
+Route::get('/register', 'RegistrationsController@show')->name('register');
 Route::post('/register', 'RegistrationsController@store')->name('register');
 
-Route::get('/login', 'SessionsController@create')->name('login');
+// Session
+Route::get('/login', 'SessionsController@show')->name('login');
 Route::post('/login', 'SessionsController@store')->name('login');
-Route::get('/logout', 'SessionsController@destroy')->name('logout');
+Route::post('/logout', 'SessionsController@destroy')->name('logout');
 
-Route::get('/calendar', function() {return view('calendar.show');})->name('calendar');
+// Calendar
+Route::get('/calendar', function() {
+    return view('calendar.show');
+})->name('calendar');
 
+// Recipes
 Route::get('/recipe/{id}', 'RecipeController@show')->name('recipes');
 Route::get('/recipe', 'RecipeController@index')->name('recipes');
 
+// Comments
 Route::post('/recipe/{recipeId}/comment/', 'CommentController@store');
+Route::post('/recipe/{recipeId}/comment/{commentId}', 'CommentController@destroy');

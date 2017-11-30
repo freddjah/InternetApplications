@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', $recipe->title . ' Recipe')
 
 @section('custom_css')
     <link rel="stylesheet" href="{{ asset('css/recipe.css') }}">

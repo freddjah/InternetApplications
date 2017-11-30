@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', 'Start')
 @section('content')
     <div class="container">
         <div class="row mt-3">
@@ -18,7 +18,7 @@
 
         <div class="row">
             <div class="card-deck">
-                @foreach($latestAddedRecipes as $recipe)
+                @foreach($recentlyAddedRecipes as $recipe)
                     <div class="card">
                         <img class="card-img-top" src="{{ asset('images/recipe/' . $recipe->image_url) }}" alt="{{ $recipe->title }} Image">
 

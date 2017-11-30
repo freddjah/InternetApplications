@@ -2,22 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Contracts\CommentRepositoryInterface;
+use App\Comment;
 
 class CommentController extends Controller
 {
-    public function __construct(CommentRepositoryInterface $repository)
+    public function __construct()
     {
-        $this->repository = $repository;
         $this->middleware('auth');
     }
 
     public function store($recipeId)
     {
-        $validator = $this->repository->getValidation();
+        $validator = Comment::validation();
         $this->validate(request(), $validator);
 
-        $this->repository->create([
+        Comment::create([
             'recipe_id' => $recipeId,
             'user_id'   => auth()->id(),
             'message'   => request('message'),
@@ -28,6 +27,8 @@ class CommentController extends Controller
 
     public function destroy($commentId)
     {
-        $this->repository->delete($commentId);
+        $comment = Comment::findOrFail($commentId);
+        $comment->delete();
+        return back();
     }
 }

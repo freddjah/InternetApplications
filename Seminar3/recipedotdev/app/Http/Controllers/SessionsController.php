@@ -2,40 +2,38 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Repositories\Contracts\UserRepositoryInterface;
+use App\User;
 
 class SessionsController extends Controller
 {
-    public function __construct(UserRepositoryInterface $repository)
+    public function __construct()
     {
-        $this->repository = $repository;
         $this->middleware('guest', ['except' => 'destroy']);
     }
 
-    public function create()
+    public function show()
     {
         return view('auth.login');
     }
 
     public function store()
     {
-        $authParams = $this->repository->getAuthenticationParams();
-        $credentials = request($authParams);
+        $authParams = User::authenticationParams();
+        $userCredentials = request($authParams);
 
-        if ($this->repository->loginWithCredentials($credentials)) {
+        $loggedIn = User::loginWithCredentials($userCredentials);
+
+        if (!$loggedIn) {
             return back()->withErrors([
-                'message' => 'Please check that your credentials are correct and try again.'
+                'message' => 'Whoops! We couldn\'t sign you in. Please make sure that you\'ve entered the correct email-adress and password'
             ]);
         }
-
-        return redirect('/');
     }
 
     public function destroy()
     {
-        $this->repository->logout();
-        return redirect('/');
+        User::logout();
+        return redirect(route('home'));
     }
 
 }

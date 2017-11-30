@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', 'Log in')
 @section('content')
 <div class="container mt-3">
     <div class="row">
@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="control-label">E-Mail Address</label>
 
                             <div>
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -52,6 +52,12 @@
                                 Login
                             </button>
                         </div>
+
+                        @if ($errors->has('message'))
+                            <div class="alert alert-warning" role="alert">
+                                <strong>{{ $errors->first('message') }}</strong>
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

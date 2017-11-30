@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Our recipes')
 @section('content')
     <div class="container mb-5">
         <div class="row mt-5">
@@ -6,7 +7,7 @@
             <div class="card-deck">
                 @foreach($recentlyAddedRecipes as $recipe)
                     <div class="card">
-                        <img class="card-img-top" src="{{ asset($recipe->picture_url) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('images/recipe/' . $recipe->image_url) }}" alt="Card image cap">
                         <div class="card-body text-center">
                             <h4 class="card-title">{{ $recipe->title }}</h4>
                             <a href="/recipe/{{ $recipe->id }}" class="btn btn-default default-bg text-white" role="button">Go to recipe</a>

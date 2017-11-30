@@ -2,27 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Contracts\RecipeRepositoryInterface;
+use App\Recipe;
 
 class RecipeController extends Controller
 {
-    public function __construct(RecipeRepositoryInterface $repository)
-    {
-        $this->repository = $repository;
-    }
 
     public function index()
     {
-        $recipes = $this->repository->getIngredientsOnRecipe(3);
-        dd($recipes);
+        $recentlyAddedRecipes = Recipe::latest(3)->get();
+        $allRecipes = Recipe::all();
+
+        return view('recipe.index', [
+            'recentlyAddedRecipes'  => $recentlyAddedRecipes,
+            'allRecipes'            => $allRecipes,
+        ]);
     }
 
-    public function show($recipeId)
+    public function show($id)
     {
-        $recipe         = $this->repository->getById($recipeId);
-        $ingredients    = $this->repository->getIngredientsOnRecipe($recipeId);
-        $instructions   = $this->repository->getInstructionsOnRecipe($recipeId);
-        $comments       = $this->repository->getCommentsOnRecipe($recipeId);
+        $recipe = Recipe::recipeData($id)->firstOrFail();
+
+        $ingredients    = $recipe->ingredients;
+        $instructions   = $recipe->instructions;
+        $comments       = $recipe->comments->sortByDesc('created_at');
 
         return view('recipe.show', [
             'recipe'        => $recipe,

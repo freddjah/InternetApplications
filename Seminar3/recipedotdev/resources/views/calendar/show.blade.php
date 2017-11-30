@@ -1,4 +1,5 @@
 @extends('layouts.layout')
+@section('title', 'Calendar')
 @section('custom_css')
     <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
 @endsection
@@ -31,9 +32,9 @@
                 <li><span class="daynumber">8</span></li>
                 <li><span class="daynumber">9</span></li>
                 <li class="recipeday">
-                    <a href="/recipe/2">
+                    <a href="/recipe/1">
                         <span class="daynumber">10</span>
-                        <img alt="Meatballs recipe" src="{{ asset('images/recipe/pancake.jpg') }}">
+                        <img alt="Pancake Recipe" src="{{ asset('images/recipe/pancake.jpg') }}">
                     </a>
                 </li>
                 <li><span class="daynumber">11</span></li>
@@ -51,7 +52,7 @@
                 <li class="recipeday">
                     <a href="/recipe/2">
                         <span class="daynumber">23</span>
-                        <img alt="Pancakes recipe" src="images/recipe/meatballs.jpg">
+                        <img alt="Meatballs Recipe" src="images/recipe/meatballs.jpg">
                     </a>
                 </li>
                 <li><span class="daynumber">24</span></li>

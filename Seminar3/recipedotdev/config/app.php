@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Stockholm',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,11 +176,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Repositories\Eloquent\Comment\CommentRepositoryServiceProvider::class,
-        App\Repositories\Eloquent\Ingredient\IngredientRepositoryServiceProvider::class,
-        App\Repositories\Eloquent\Instruction\InstructionRepositoryServiceProvider::class,
-        App\Repositories\Eloquent\Recipe\RecipeRepositoryServiceProvider::class,
-        App\Repositories\Eloquent\User\UserRepositoryServiceProvider::class,
     ],
 
     /*

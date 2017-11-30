@@ -27,42 +27,80 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Default action to encrypt password when creating a new User
+     *
+     * @param $password
+     */
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
 
+    /**
+     * Setting up relationship with Comments
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function login(User $user)
+    /**
+     * Logging in a user with credentials.
+     *
+     * @param $userCredentials
+     */
+    public static function loginWithCredentials($userCredentials)
+    {
+        auth()->attempt($userCredentials);
+    }
+
+    /**
+     * Logging in a user with a user-object.
+     *
+     * @param User $user
+     */
+    public static function loginUser(User $user)
     {
         auth()->login($user);
     }
 
-    public function loginWithCredentials(array $credentials)
-    {
-        return auth()->attempt($credentials);
-    }
-
-    public function logout()
+    /**
+     * Logging out current user user.
+     */
+    public static function logout()
     {
         auth()->logout();
     }
 
-    public function registrationParams()
+    /**
+     * Defining parameters to use when creating a new User
+     *
+     * @return array
+     */
+    public static function registrationParams()
     {
         return ['name', 'email', 'password'];
     }
 
-    public function authenticationParams()
+    /**
+     * Defining parameters needed to authenticate a User
+     *
+     * @return array
+     */
+    public static function authenticationParams()
     {
         return ['email', 'password'];
     }
 
-    public function registrationValidation()
+    /**
+     * Defining the validations to be made before a User can be created.
+     *
+     * @return array
+     */
+    public static function registrationValidation()
     {
         return [
             'name' => 'required',
