@@ -7,7 +7,7 @@
         <hr>
 
         <div class="container">
-            @foreach($recipe->comments()->orderBy('created_at', 'desc')->get() as $comment)
+            @foreach($comments as $comment)
                 @include('recipe.parts.comments.parts.comment')
             @endforeach
         </div>
