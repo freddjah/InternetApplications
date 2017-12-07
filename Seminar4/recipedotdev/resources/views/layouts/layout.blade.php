@@ -24,9 +24,13 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @yield('custom_css')
+
+    <!-- CSRF -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
     @include('layouts.parts.navbar')
     @yield('content')
 </body>
+<script src="{{ asset('js/app.js') }}"></script>
 </html>

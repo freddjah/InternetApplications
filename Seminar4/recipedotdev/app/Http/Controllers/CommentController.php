@@ -8,7 +8,12 @@ class CommentController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
+    }
+
+    public function index($recipeId) 
+    {
+        return Comment::with('user')->where('recipe_id', $recipeId)->get();
     }
 
     public function store($recipeId)
@@ -21,11 +26,9 @@ class CommentController extends Controller
             'user_id'   => auth()->id(),
             'message'   => request('message'),
         ]);
-
-        return back();
     }
 
-    public function destroy($commentId)
+    public function destroy($recipeId, $commentId)
     {
         $comment = Comment::findOrFail($commentId);
         $comment->delete();

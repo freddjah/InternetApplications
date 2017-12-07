@@ -33,5 +33,6 @@ Route::get('/recipe/{id}', 'RecipeController@show')->name('recipes');
 Route::get('/recipe', 'RecipeController@index')->name('recipes');
 
 // Comments
-Route::post('/recipe/{recipeId}/comment/', 'CommentController@store');
 Route::post('/recipe/{recipeId}/comment/{commentId}', 'CommentController@destroy');
+Route::post('/recipe/{recipeId}/comment/', 'CommentController@store')->name('comments');
+Route::get('/recipe/{recipeId}/comment/', 'CommentController@index')->name('comments');

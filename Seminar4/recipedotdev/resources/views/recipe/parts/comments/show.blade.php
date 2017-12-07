@@ -6,12 +6,8 @@
 
         <hr>
 
-        <div class="container">
-            @foreach($comments as $comment)
-                @include('recipe.parts.comments.parts.comment')
-            @endforeach
-        </div>
+        <comment-show-component recipe-id="{{ $recipe->id }}" current-user="{{ auth()->id() }}" route-connection="{{ route('comments', ['recipeId' => $recipe->id]) }}"></comment-show-component>
 
-        @include('recipe.parts.comments.parts.form')
+        <comment-post-component is-logged-in="true" route-connection="{{ route('comments', ['recipeId' => $recipe->id]) }}"></comment-post-component>
     </div>
 </section>
