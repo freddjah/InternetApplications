@@ -4,10 +4,9 @@
 
         <hr>
 
-        <div v-if="isLoggedIn">
+        <div v-if="userId">
             <div class="form-group">
                 <textarea v-model="message" class="form-control" rows="5" name="message" placeholder="Write a message (up to 250 characters)..." required></textarea>
-                <input type="hidden" name="_token" :value="csrf">
             </div>
             <button v-on:click="addComment()" class="btn btn-light">Add comment</button>
         </div>
@@ -22,22 +21,18 @@
 
 <script>
     export default {
-        props: ['is-logged-in', 'route-connection'],
+        name: 'comment-post-component',
+        props: ['user-id'],
         data() {
             return {
-                message: '',
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                message: ''
             }
         },
         methods: {
             addComment() {
-                axios.post(this.routeConnection, {
-                    message: this.message,
-                    _token: this.csrf
-                })
-                this.$emit('messageAdded')
+                this.$parent.$emit('comment-add', this.message)
                 this.message = ''
-            },
-        },
+            }
+        }
     }
 </script>

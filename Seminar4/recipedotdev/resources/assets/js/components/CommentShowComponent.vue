@@ -9,10 +9,7 @@
                 <div class="card-body">
                     <p class="card-text">{{ comment.message }}</p>
                     <div v-if="isAuthor(comment.user.id)">
-                         <form :action="commentUrl(comment.id)" method="POST">
-                            <input type="hidden" name="_token" :value="csrf">
-                            <button type="submit" class="btn btn-danger">Delete Comment</button>
-                        </form> 
+                        <button v-on:click="deleteComment(comment.id)" class="btn btn-danger">Delete Comment</button>
                     </div>
                 </div>
 
@@ -23,35 +20,15 @@
 
 <script>
     export default {
-        props: ['recipe-id', 'current-user', 'route-connection'],
-        data() {
-            return {
-                comments: [],
-                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            }
-        },
+        name: 'comment-show-component',
+        props: ['comments', 'user-id'],
         methods: {
-            getComments() {
-                axios.get(this.routeConnection).then(response => { this.comments = response.data })
-                console.log(this.comments)
-            },
-            commentUrl(commentId) {
-                return this.routeConnection + "/" + commentId
-            },
             isAuthor(id) {
-                return this.currentUser == id
+                return this.userId == id
             },
-            addComment(message) {
-                axios.post('this.routeConnection', message).then(this.getComments())
-            },
+            deleteComment(id) {
+                this.$parent.$emit('comment-remove', id)
+            }   
         },
-        created() {
-            this.getComments()
-        },
-        mounted() {
-            setInterval(function() {
-                this.getComments()
-            }.bind(this), 5000)
-        }
     }
 </script>

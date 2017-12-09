@@ -15,9 +15,11 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('comment-show-component', require('./components/CommentShowComponent.vue'));
-Vue.component('comment-post-component', require('./components/CommentPostComponent.vue'));
+Vue.component('comment-component', require('./components/CommentComponent.vue'))
 
 const app = new Vue({
     el: '#comments',
+    methods: {
+        getComments() { this.$refs.show.getComments() },
+    }
 });

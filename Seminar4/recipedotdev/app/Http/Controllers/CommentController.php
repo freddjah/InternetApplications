@@ -26,12 +26,14 @@ class CommentController extends Controller
             'user_id'   => auth()->id(),
             'message'   => request('message'),
         ]);
+
+        return Comment::with('user')->where('recipe_id', $recipeId)->get();
     }
 
     public function destroy($recipeId, $commentId)
     {
         $comment = Comment::findOrFail($commentId);
         $comment->delete();
-        return back();
+        return Comment::with('user')->where('recipe_id', $recipeId)->get();
     }
 }

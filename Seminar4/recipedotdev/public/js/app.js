@@ -987,11 +987,15 @@ window.Vue = __webpack_require__(35);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('comment-show-component', __webpack_require__(50));
-Vue.component('comment-post-component', __webpack_require__(53));
+Vue.component('comment-component', __webpack_require__(56));
 
 var app = new Vue({
-  el: '#comments'
+  el: '#comments',
+  methods: {
+    getComments: function getComments() {
+      this.$refs.show.getComments();
+    }
+  }
 });
 
 /***/ }),
@@ -42883,45 +42887,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['recipe-id', 'current-user', 'route-connection'],
-    data: function data() {
-        return {
-            comments: [],
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        };
-    },
-
+    name: 'comment-show-component',
+    props: ['comments', 'user-id'],
     methods: {
-        getComments: function getComments() {
-            var _this = this;
-
-            axios.get(this.routeConnection).then(function (response) {
-                _this.comments = response.data;
-            });
-            console.log(this.comments);
-        },
-        commentUrl: function commentUrl(commentId) {
-            return this.routeConnection + "/" + commentId;
-        },
         isAuthor: function isAuthor(id) {
-            return this.currentUser == id;
+            return this.userId == id;
         },
-        addComment: function addComment(message) {
-            axios.post('this.routeConnection', message).then(this.getComments());
+        deleteComment: function deleteComment(id) {
+            this.$parent.$emit('comment-remove', id);
         }
-    },
-    created: function created() {
-        this.getComments();
-    },
-    mounted: function mounted() {
-        setInterval(function () {
-            this.getComments();
-        }.bind(this), 5000);
     }
 });
 
@@ -42952,28 +42928,16 @@ var render = function() {
             _vm.isAuthor(comment.user.id)
               ? _c("div", [
                   _c(
-                    "form",
+                    "button",
                     {
-                      attrs: {
-                        action: _vm.commentUrl(comment.id),
-                        method: "POST"
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.deleteComment(comment.id)
+                        }
                       }
                     },
-                    [
-                      _c("input", {
-                        attrs: { type: "hidden", name: "_token" },
-                        domProps: { value: _vm.csrf }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Delete Comment")]
-                      )
-                    ]
+                    [_vm._v("Delete Comment")]
                   )
                 ])
               : _vm._e()
@@ -43068,24 +43032,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['is-logged-in', 'route-connection'],
+    name: 'comment-post-component',
+    props: ['user-id'],
     data: function data() {
         return {
-            message: '',
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            message: ''
         };
     },
 
     methods: {
         addComment: function addComment() {
-            axios.post(this.routeConnection, {
-                message: this.message,
-                _token: this.csrf
-            });
-            this.$emit('messageAdded');
+            this.$parent.$emit('comment-add', this.message);
             this.message = '';
         }
     }
@@ -43106,7 +43065,7 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _vm.isLoggedIn
+    _vm.userId
       ? _c("div", [
           _c("div", { staticClass: "form-group" }, [
             _c("textarea", {
@@ -43134,11 +43093,6 @@ var render = function() {
                   _vm.message = $event.target.value
                 }
               }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              attrs: { type: "hidden", name: "_token" },
-              domProps: { value: _vm.csrf }
             })
           ]),
           _vm._v(" "),
@@ -43194,6 +43148,166 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-137d6fd5", module.exports)
+  }
+}
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(39)
+/* script */
+var __vue_script__ = __webpack_require__(57)
+/* template */
+var __vue_template__ = __webpack_require__(58)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CommentComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4720d6d6", Component.options)
+  } else {
+    hotAPI.reload("data-v-4720d6d6", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CommentPostComponent__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CommentPostComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__CommentPostComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommentShowComponent__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommentShowComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CommentShowComponent__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['comments-url', 'user-id'],
+    components: {
+        CommentPostComponent: __WEBPACK_IMPORTED_MODULE_0__CommentPostComponent___default.a,
+        CommentShowComponent: __WEBPACK_IMPORTED_MODULE_1__CommentShowComponent___default.a
+    },
+    data: function data() {
+        return {
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+            comments: []
+        };
+    },
+
+    methods: {
+        getComments: function getComments() {
+            var self = this;
+            axios.get(this.commentsUrl).then(function (response) {
+                self.comments = response.data, console.log(response.data);
+            });
+        },
+        addComment: function addComment(message) {
+            axios.post(this.commentsUrl, {
+                message: message,
+                _token: this.csrf
+            }).then(function (response) {
+                this.getComments();
+            }.bind(this));
+        },
+        deleteComment: function deleteComment(id) {
+            axios.post(this.commentUrl(id), {
+                _token: this.csrf
+            }).then(function (response) {
+                this.getComments();
+            }.bind(this));
+        },
+        commentUrl: function commentUrl(id) {
+            return this.commentsUrl + "/" + id;
+        }
+    },
+    created: function created() {
+        this.$on('comment-add', this.addComment);
+        this.$on('comment-remove', this.deleteComment);
+    },
+    mounted: function mounted() {
+        this.getComments();
+        setInterval(function () {
+            this.getComments();
+        }.bind(this), 3000);
+    }
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "col-lg-12" },
+    [
+      _c("h3", { staticClass: "text-center text-white" }, [_vm._v("Comments")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
+      _c("comment-show-component", {
+        attrs: { comments: _vm.comments, "user-id": _vm.userId }
+      }),
+      _vm._v(" "),
+      _c("comment-post-component", { attrs: { "user-id": _vm.userId } })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4720d6d6", module.exports)
   }
 }
 
